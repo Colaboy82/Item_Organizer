@@ -14,10 +14,16 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world! Commit Test, Testign Derrick Branch")
-        }
-        .padding()
+            TabView {
+                Text("Home Tab").tabItem {
+                Image(systemName: "house.fill")
+                Text("Main Menu")
+                }
+            }
+        }.padding()
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
