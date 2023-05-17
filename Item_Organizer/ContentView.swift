@@ -11,9 +11,13 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack (spacing: 20){
-                Image(systemName: "house.fill")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
+                Button{
+                    print("Hello World Main Menu")
+                } label: {
+                    Image(systemName: "house.fill")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                }
                 Text("Main Menu")
                 Spacer()
                 Button{
