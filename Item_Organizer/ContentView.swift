@@ -16,9 +16,13 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
                 Text("Main Menu")
                 Spacer()
-                Image(systemName: "magnifyingglass")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
+                Button{
+                    print("Hello World Test")
+                } label: {
+                    Image(systemName: "magnifyingglass")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                }
             }
             TabView {
                 Text("Home Tab").tabItem {
