@@ -10,14 +10,32 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world! Commit Test, Testign Derrick Branch")
+            HStack (spacing: 20){
+                Image(systemName: "house.fill")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Text("Main Menu")
+                Spacer()
+                Image(systemName: "magnifyingglass")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+            }
             TabView {
                 Text("Home Tab").tabItem {
                 Image(systemName: "house.fill")
                 Text("Main Menu")
+                }
+                Text("Add Tab")
+                .font(.system(size: 30, weight: .bold, design: .rounded))
+                .tabItem {
+                Image(systemName: "plus.diamond.fill")
+                    Text("Add")
+                }
+                Text("Edit Tab")
+                .font(.system(size: 30, weight: .bold, design: .rounded))
+                .tabItem {
+                Image(systemName: "pencil")
+                    Text("Edit")
                 }
             }
         }.padding()
