@@ -7,12 +7,33 @@
 
 import SwiftUI
 
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
+}
+
 struct HomeTab: View {
     var body: some View {
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)
-            Text("Home Tab").font(.system(size: 30, weight: .bold, design: .rounded))
+            
+            //  ACTUAL CONTENT
+            VStack {
+                Text("Set #1 (Test Tile)")
+                    .font(.system(.title, design: .rounded))
+                    .foregroundColor(.black)
+                    .fontWeight(.black)
+            } //VStack
+            .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
+            .padding(30)
+            .background(.white)
+            .cornerRadius(20)
+            
+            //
+            Spacer()
+
         }
     }
 }

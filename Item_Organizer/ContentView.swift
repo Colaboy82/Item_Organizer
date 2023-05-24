@@ -10,32 +10,39 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var selection = 0
+//    @State private var bckgnd_clr = Color.gray
 
     var body: some View {
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)
             VStack {
+                Spacer().frame(height: 10)
                 HStack (spacing: 20){
+                    Spacer().frame(width: 5)
                     Button{
-                        print("Hello World Main Menu")
+                        self.selection = 0
                     } label: {
                         Image(systemName: "house.fill")
                             .imageScale(.large)
                             .foregroundColor(.accentColor)
                     }
-                    Text("Main Menu")
+                    Text(header_bar_text(tab_Num: selection))
                     Spacer()
                     Button{
-                        print("Hello World Test")
+                        print("Search")
                     } label: {
                         Image(systemName: "magnifyingglass")
                             .imageScale(.large)
                             .foregroundColor(.accentColor)
                     }
+                    Spacer().frame(width: 5)
                 }
                 Divider()
+                //ACTUAL CONTENT
                 
+                
+                //
                 TabView (selection: $selection) {
                     Group {
                         HomeTab()
@@ -56,6 +63,7 @@ struct ContentView: View {
                             .tabItem {
                                 Image(systemName: "pencil")
                                 Text("Edit")
+                                
                             }
                             .tag(2)
                     }
@@ -63,9 +71,21 @@ struct ContentView: View {
                 .accentColor(.white)
                 .onAppear() {
                     UITabBar.appearance().backgroundColor = .lightGray
- 
+//                    UITabBar.appearance().layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
+//                    UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 10)
                 }
+                
             }
+        }
+    }
+    
+    func header_bar_text(tab_Num: Int) -> String {
+        if tab_Num == 2{
+            return "Edit"
+        }else if tab_Num == 1{
+            return "Add"
+        }else{
+            return "Main Menu"
         }
     }
     
@@ -84,6 +104,7 @@ struct ContentView: View {
            .cornerRadius(10)
            .padding(10)
        }
+    
 }
 
 
