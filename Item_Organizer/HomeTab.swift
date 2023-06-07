@@ -14,22 +14,43 @@ extension UIScreen{
 }
 
 struct HomeTab: View {
+    let data = 1...10
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    
     var body: some View {
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)
             
             //  ACTUAL CONTENT
-            VStack {
-                Text("Set #1 (Test Tile)")
-                    .font(.system(.title, design: .rounded))
-                    .foregroundColor(.black)
-                    .fontWeight(.black)
-            } //VStack
-            .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
-            .padding(30)
-            .background(.white)
-            .cornerRadius(20)
+            ScrollView (.vertical) {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 30) {
+                    ForEach(data, id: \.self) { item in
+                        Image(systemName:"\(item).square.fill")
+                            .resizable()
+                            .font(.system(.title, design: .rounded))
+                            .foregroundColor(.white)
+                            .fontWeight(.black)
+                            .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: 700)
+//
+//            VStack {
+//                Text("Set #1 (Test Tile)")
+//                    .font(.system(.title, design: .rounded))
+//                    .foregroundColor(.black)
+//                    .fontWeight(.black)
+//            } //VStack
+//            .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
+//            .padding(30)
+//            .background(.white)
+//            .cornerRadius(20)
             
             //
             Spacer()
