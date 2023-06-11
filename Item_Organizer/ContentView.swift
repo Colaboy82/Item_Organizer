@@ -7,12 +7,23 @@
 
 import SwiftUI
 
+
+public class Screen_State {
+    //Set, Category, Item
+    static var hierarchy = "Set"
+
+    init() {
+        Screen_State.hierarchy = "Set"
+    }
+}
+
 struct ContentView: View {
 
     @State private var selection = 0
 //    @State private var bckgnd_clr = Color.gray
 
     var body: some View {
+        
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)
@@ -22,6 +33,8 @@ struct ContentView: View {
                     Spacer().frame(width: 5)
                     Button{
                         self.selection = 0
+                        Screen_State.hierarchy = "Set"
+                        print(Screen_State.hierarchy)
                     } label: {
                         Image(systemName: "house.fill")
                             .imageScale(.large)
@@ -85,6 +98,8 @@ struct ContentView: View {
         }else if tab_Num == 1{
             return "Add"
         }else{
+            Screen_State.hierarchy = "Set"
+            print(Screen_State.hierarchy)
             return "Main Menu"
         }
     }

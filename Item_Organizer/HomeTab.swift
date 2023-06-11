@@ -14,6 +14,7 @@ extension UIScreen{
 }
 
 struct HomeTab: View {
+    
     let data = 1...10
     
     let columns = [
@@ -25,17 +26,22 @@ struct HomeTab: View {
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)
-            
             //  ACTUAL CONTENT
             ScrollView (.vertical) {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 30) {
                     ForEach(data, id: \.self) { item in
-                        Image(systemName:"\(item).square.fill")
-                            .resizable()
-                            .font(.system(.title, design: .rounded))
-                            .foregroundColor(.white)
-                            .fontWeight(.black)
-                            .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
+                        Button{
+                            print(item)
+                            Screen_State.hierarchy = "Category"
+                            print(Screen_State.hierarchy)
+                        }label: {
+                            Image(systemName:"\(item).square.fill")
+                                .resizable()
+                                .font(.system(.title, design: .rounded))
+                                .foregroundColor(.white)
+                                .fontWeight(.black)
+                                .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
+                        }
                     }
                 }
             }
