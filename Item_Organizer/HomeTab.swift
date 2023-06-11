@@ -14,8 +14,8 @@ extension UIScreen{
 }
 
 struct HomeTab: View {
-    
-    let data = 1...10
+
+    let data = (1...10).map { "Set #\($0)" }
     
     let columns = [
         GridItem(.flexible()),
@@ -35,28 +35,20 @@ struct HomeTab: View {
                             Screen_State.hierarchy = "Category"
                             print(Screen_State.hierarchy)
                         }label: {
-                            Image(systemName:"\(item).square.fill")
-                                .resizable()
+                            Text(item)
                                 .font(.system(.title, design: .rounded))
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .fontWeight(.black)
                                 .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
+                                .padding(20)
+                                .background(.white)
+                                .cornerRadius(40)
                         }
                     }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: 700)
-//
-//            VStack {
-//                Text("Set #1 (Test Tile)")
-//                    .font(.system(.title, design: .rounded))
-//                    .foregroundColor(.black)
-//                    .fontWeight(.black)
-//            } //VStack
-//            .frame(maxWidth: UIScreen.screenWidth/3, minHeight: UIScreen.screenHeight/6)
-//            .padding(30)
-//            .background(.white)
-//            .cornerRadius(20)
+
             
             //
             Spacer()
