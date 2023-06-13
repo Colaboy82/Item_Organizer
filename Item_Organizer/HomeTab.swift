@@ -14,7 +14,7 @@ extension UIScreen{
 }
 
 struct HomeTab: View {
-
+        
     let data = (1...10).map { "Set #\($0)" }
     
     let columns = [
@@ -26,7 +26,7 @@ struct HomeTab: View {
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)
-            //  ACTUAL CONTENT
+            //  Set Content
             ScrollView (.vertical) {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 30) {
                     ForEach(data, id: \.self) { item in
@@ -49,7 +49,6 @@ struct HomeTab: View {
             }
             .frame(maxWidth: .infinity, maxHeight: 700)
 
-            
             //
             Spacer()
 
