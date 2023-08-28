@@ -190,7 +190,6 @@
 				3DC7F9E82A12A68600625E33 /* Sources */,
 				3DC7F9E92A12A68600625E33 /* Frameworks */,
 				3DC7F9EA2A12A68600625E33 /* Resources */,
-				722F66F8E5297CA49C0CC542 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,7 +227,6 @@
 				3DC7FA032A12A68700625E33 /* Sources */,
 				3DC7FA042A12A68700625E33 /* Frameworks */,
 				3DC7FA052A12A68700625E33 /* Resources */,
-				B8EE6947FB182C05B2D40304 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,23 +308,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		722F66F8E5297CA49C0CC542 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Item_Organizer/Pods-Item_Organizer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Item_Organizer/Pods-Item_Organizer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Item_Organizer/Pods-Item_Organizer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7CCA6F03AD27001A56108EEE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,23 +350,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8EE6947FB182C05B2D40304 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Item_Organizer-Item_OrganizerUITests/Pods-Item_Organizer-Item_OrganizerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Item_Organizer-Item_OrganizerUITests/Pods-Item_Organizer-Item_OrganizerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Item_Organizer-Item_OrganizerUITests/Pods-Item_Organizer-Item_OrganizerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE3AA9319B4A079A9483E66A /* [CP] Check Pods Manifest.lock */ = {

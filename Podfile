@@ -6,8 +6,7 @@ target 'Item_Organizer' do
   use_frameworks!
 
   # Pods for Item_Organizer
-  pod 'FirebaseAuth'
-  pod 'FirebaseFirestore'
+  #pod 'FirebaseAuth'
 
   target 'Item_OrganizerTests' do
     inherit! :search_paths
