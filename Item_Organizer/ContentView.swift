@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 
 public class Screen_State {
     //Set, Category, Item
@@ -50,9 +50,14 @@ struct ContentView: View {
                             .tabItem {
                                 Image(systemName: "pencil")
                                 Text("Edit")
-                                
                             }
                             .tag(2)
+                        FirstView()
+                            .tabItem {
+                                Image(systemName: "rectangle.portrait.and.arrow.forward")
+                                Text("Sign Out")
+                            }
+                            .tag(3)
                     }
                 }
                 .accentColor(.white)
@@ -87,9 +92,12 @@ struct ContentView: View {
             }else{
                 return "New Item Entry"
             }
-        }else{
+        }else if tab_Num == 0{
             Screen_State.hierarchy = "Set"
             return "Main Menu"
+        }else{
+            AppViewModel().signOut()
+            return "Signed Out"
         }
     }
     
