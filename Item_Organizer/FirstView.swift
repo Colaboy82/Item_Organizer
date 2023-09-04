@@ -154,6 +154,6 @@ struct SignUpView: View {
 }
 struct FirstView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstView()
+        FirstView().environmentObject(AppViewModel())
     }
 }
