@@ -14,15 +14,16 @@ extension UIScreen{
 }
 
 struct HomeTab: View {
-        
+    
     let data = (1...10).map { "Set #\($0)" }
     
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
-    
+        
     var body: some View {
+        let _ = print(UID.curr_User_ID)
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)

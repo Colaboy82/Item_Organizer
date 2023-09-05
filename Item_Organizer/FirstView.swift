@@ -8,6 +8,11 @@
 import SwiftUI
 import FirebaseAuth
 
+public class UID {
+    static var curr_User_ID = ""
+}
+
+
 public class AppViewModel: ObservableObject{
 
     let auth = Auth.auth()
@@ -64,6 +69,10 @@ struct FirstView: View{
         }
         .onAppear{
             viewModel.signedIn = viewModel.isSignedIn
+            let auth = Auth.auth()
+            if viewModel.signedIn{
+                UID.curr_User_ID = auth.currentUser!.uid
+            }
         }
     }
 }
@@ -139,6 +148,7 @@ struct SignUpView: View {
                 }
                 
                 viewModel.signUp(email: email, password: password)
+
             }, label:{
                 Text("Create Account")
                     .foregroundColor(Color.white)

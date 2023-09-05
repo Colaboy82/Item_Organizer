@@ -17,7 +17,7 @@ public class Screen_State {
 }
 
 struct ContentView: View {
-
+    
     @State private var selection = 0
 //    @State private var bckgnd_clr = Color.gray
 
@@ -142,15 +142,16 @@ struct ContentView: View {
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
             })
-        }else if tab_Num == 1{
+        }else if tab_Num == 1{ //new set
             return AnyView(Button{
                 print("Save Set")
+                AddTab().addNewSetName(new_set_name: Add_Vals.new_set_name)
             } label: {
                 Image(systemName: "checkmark")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
             })
-        }else{
+        }else{// edit set
             return AnyView(Button{
                 print("Save Set")
             } label: {
@@ -182,6 +183,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(AppViewModel())
     }
 }
