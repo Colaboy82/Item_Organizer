@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 extension UIScreen{
    static let screenWidth = UIScreen.main.bounds.size.width
@@ -21,22 +22,23 @@ struct HomeTab: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
+    
+    @State var set_names_list: [SetNameObject] = []
         
     var body: some View {
-        let _ = print(UID.curr_User_ID)
         ZStack{
             Color.gray
                 .edgesIgnoringSafeArea(.all)
             //  Set Content
             ScrollView (.vertical) {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 30) {
-                    ForEach(data, id: \.self) { item in
+                    ForEach(self.set_names_list, id: \.self.setName) { item in
                         Button{
-                            print(item)
+                            print("\(item.setName)")
                             Screen_State.hierarchy = "Category"
                             print(Screen_State.hierarchy)
                         }label: {
-                            Text(item)
+                            Text("\(item.setName)")
                                 .font(.system(.title, design: .rounded))
                                 .foregroundColor(.black)
                                 .fontWeight(.black)
@@ -47,12 +49,31 @@ struct HomeTab: View {
                         }
                     }
                 }
+            }.onAppear() {
+                self.fetchAllSetNames()
             }
             .frame(maxWidth: .infinity, maxHeight: 700)
 
             //
             Spacer()
 
+        }
+    }
+    func fetchAllSetNames() {
+        let db = Firestore.firestore()
+        let file_title = UID.curr_User_ID + "_SetNames"
+        
+        // Remove previously data to prevent duplicate data
+        self.set_names_list.removeAll()
+        db.collectionGroup(file_title).getDocuments() {(querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let set_name = document.get("Name") as! String
+                    self.set_names_list.append(SetNameObject(name: set_name))
+                }
+            }
         }
     }
 }

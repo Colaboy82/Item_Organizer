@@ -8,7 +8,10 @@
 import Foundation
 import Firebase
 
-struct SetNameModel: Identifiable {
-    var id: String = UUID().uuidString
-    var SetNames: String?
+class SetNameObject: ObservableObject,Identifiable {
+    @Published var setName: String
+    
+    init(name: String) {
+        setName = name
+    }
 }
